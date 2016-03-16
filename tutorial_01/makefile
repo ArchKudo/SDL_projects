@@ -16,5 +16,6 @@ $(PROG): $(OBJS)
 	$(CXX) $(OBJS) -o $(PROG) $(LFLAGS)
 
 # cleaning everything that can be automatically recreated with "make".
-#clean:
-#	rm $(PROG) *.o
+.PHONY : clean
+clean:
+	rm $(PROG) $(OBJS)
