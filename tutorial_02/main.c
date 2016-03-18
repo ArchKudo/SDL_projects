@@ -1,3 +1,5 @@
+//Display an image on the enire screen
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <SDL2/SDL.h>
