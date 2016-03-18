@@ -1,14 +1,14 @@
 CFLAGS = -Wall -pedantic -Werror
 LFLAGS = `sdl2-config --libs` -lSDL
 OBJS   = input.o main.o
-PROG = tutorial01
+PROG = tutorial_01
 CXX = gcc
 
 # top-level rule to create the program.
 all: $(PROG)
 
 # compiling other source files.
-%.o: src/%.c src/%.h src/defs.h
+%.o: %.c %.h
 	$(CXX) $(CFLAGS) -c -s $<
 
 # linking the program.
