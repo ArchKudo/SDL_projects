@@ -1,4 +1,5 @@
 // Opening a window
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -21,8 +22,6 @@ int main(int argc, char const *argv[]) {
                  SDL_GetError());
     return 3;
   }
-  // SDL_Window creates a window with the specified position, dimensions, and
-  // flags
   // Replaces SDL_SetVideoMode( https://goo.gl/lIoT1X )
   // More at: https://goo.gl/5KZkHn
 
