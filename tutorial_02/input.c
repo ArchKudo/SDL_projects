@@ -1,5 +1,3 @@
-//Display an image on the whole screen
-
 #include <stdlib.h>
 #include <SDL2/SDL.h>
 #include "main.h"

@@ -1,4 +1,4 @@
-//Display an image on the enire screen
+// Display an image on the enire screen
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -13,13 +13,26 @@ SDL_Texture *texture = NULL;
 
 int main(int argc, char const *argv[]) {
 
-  if (SDL_Init((SDL_INIT_VIDEO)) < 0) {
-    fprintf(stderr, "Cannot initialize SDL: %s\n", SDL_GetError());
-    exit(1);
+  if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
+    SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Cannot initialize SDL: %s",
+                 SDL_GetError());
+    return 3;
   }
   IMG_Init(IMG_INIT_JPG);
   window = SDL_CreateWindow("Displaying an image", POS, POS, WIDTH, HEIGHT, 0);
+  if (window == NULL) {
+    SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Could not create a window: %s",
+                 SDL_GetError());
+    return 3;
+  }
   renderer = SDL_CreateRenderer(window, -1, 0);
+  if (renderer == NULL) {
+    SDL_LogError(SDL_LOG_CATEGORY_RENDER, "Could not create a renderer: %s",
+                 SDL_GetError());
+    return 3;
+  }
+  SDL_RenderSetLogicalSize(renderer, WIDTH, HEIGHT);
+  SDL_RenderClear(renderer);
   image = IMG_Load("dexter.jpg");
   texture = SDL_CreateTextureFromSurface(renderer, image);
   SDL_RenderCopy(renderer, texture, NULL, NULL);

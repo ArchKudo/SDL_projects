@@ -12,3 +12,4 @@ extern SDL_Surface *image;
 void get_input(void);
 
 void cleanup(void);
+
