@@ -4,7 +4,7 @@
 #define WIDTH 640
 #define POS SDL_WINDOWPOS_UNDEFINED
 #define RED 255, 0, 0, 255
-#define BLUE 0, 0, 255, 0
+#define BLUE 0, 0, 255, 255
 
 #define RECT_POS_X 240
 #define RECT_POS_Y 320
